@@ -17,5 +17,5 @@ export class Role extends BaseEntity {
 
   @OneToMany(() => User, (user) => user.role)
   users?: User[];
-  // Relation 1:N con tabla users
+  // Relation 1:N with table users
 }
