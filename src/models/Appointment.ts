@@ -34,7 +34,7 @@ export class Appointment extends BaseEntity {
   @JoinColumn({ name: "webcreator_id" })
   webcreator!: Webcreator;
 
-  //relation N:1 with artist
+  //relation N:1 with client
   @ManyToOne(() => Client, (client) => client.id)
   @JoinColumn({ name: "client_id" })
   client!: Client;
