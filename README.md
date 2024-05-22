@@ -18,7 +18,8 @@
 
 ## Stack
 
-Used technologies:
+Used technologies:  
+principal language typescript, 🛠️ TypeORM, API REST, Docker/images Mysql and  async/await functionalities.
 
 <div align="center">
 
@@ -34,3 +35,8 @@ Used technologies:
 </div>
 
 ## Objective
+
+
+## DB Diagram
+
+<img src="./img/DbOng.png" alt="DB" />
