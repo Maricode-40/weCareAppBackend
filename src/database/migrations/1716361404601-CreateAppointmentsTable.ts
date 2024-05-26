@@ -47,6 +47,8 @@ export class CreateAppointmentsTable1716361404601
             columnNames: ["client_id"],
             referencedTableName: "clients",
             referencedColumnNames: ["id"],
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
           },
         ],
       })

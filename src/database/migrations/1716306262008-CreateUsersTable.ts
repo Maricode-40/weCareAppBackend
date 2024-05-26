@@ -51,6 +51,8 @@ export class CreateUsersTable1716306262008 implements MigrationInterface {
             columnNames: ["role_id"],
             referencedTableName: "roles",
             referencedColumnNames: ["id"],
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
           },
         ],
       }),
