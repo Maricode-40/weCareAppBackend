@@ -25,5 +25,5 @@ export class Webcreator extends BaseEntity {
   // Relation 1:1 users
   @OneToOne(() => User, (user) => user.id)
   @JoinColumn({ name: "user_id" })
-  users!: User;
+  user!: User;
 }
