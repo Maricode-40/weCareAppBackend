@@ -23,27 +23,20 @@ router.put("/profile", (req, res) => {
 router.get("/:id", userController.getById);
 // ///// implement async -await and move it to user- controllers///
 
-//////Protected Routes////
+/////////PROTECTED ROUTES///
 
 // Edit user role
-
+router.put("/:id/role", userController.editUserRole);
 // GET ALL users by Role SUPERADMIN
-///**** array type of objects moving to usercontrolller ////
-//Create user
+///**** array type of objects moving to usercontroller ////
 router.get("/", userController.getAll);
-
-router.post("/", (req, res) => {
-  res.send("create new user");
-});
+//Create user
+router.post("/", userController.create);
 // edit user
-router.put("/:id", (req, res) => {
-  res.send("update USER -BY ID ");
-});
+router.put("/:id", userController.update);
 
 // delete user
-router.delete("/:id", (req, res) => {
-  res.send("delete user");
-});
+router.delete("/:id", userController.delete);
 
 //Get all users with role client ??? wtf WTF
 //
