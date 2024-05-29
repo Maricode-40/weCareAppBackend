@@ -4,7 +4,7 @@ import { User } from "../models/User";
 import { UserRoles } from "../constants/UserRoles";
 import jwt from "jsonwebtoken";
 import { TokenData } from "../types/types";
-
+import dotenv from "dotenv";
 
 export const authController = {
   async register(req: Request, res: Response): Promise<void> {
@@ -51,10 +51,10 @@ export const authController = {
       }
 
       const user = await User.findOne({
-        select: { id: true, email: true, password: true },
         relations: {
           role: true,
         },
+        select: { id: true, email: true, password: true },
         where: { email: email },
       });
 
@@ -88,6 +88,4 @@ export const authController = {
       });
     }
   },
-  
 };
-
