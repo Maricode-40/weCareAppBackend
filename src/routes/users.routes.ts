@@ -16,12 +16,8 @@ router.get("/profile", (req, res) => {
 
 //Update loged user profile-double check result
 router.put("/profile", (req, res) => {
-  res.send("put first profile ");
+  res.send("put first profile update my profile as user ");
 });
-
-//get user by ID- ***doublce check result in this route and
-router.get("/:id", userController.getById);
-// ///// implement async -await and move it to user- controllers///
 
 /////////PROTECTED ROUTES///
 
@@ -37,6 +33,10 @@ router.put("/:id", userController.update);
 
 // delete user
 router.delete("/:id", userController.delete);
+
+//get user by ID- ***doublce check result in this route and
+router.get("/:id", userController.getById);
+// ///// implement async -await and move it to user- controllers///
 
 //Get all users with role client ??? wtf WTF
 //

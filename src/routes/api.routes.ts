@@ -3,12 +3,13 @@ import userRoutes from "./users.routes";
 import baseRoutes from "./ base.routes";
 import webcreatorRoutes from "./webcreator.routes";
 import appointmentsRoutes from "./appointments.routes";
-
+import authRoutes from "./auth.routes"
 
 const router = express.Router();
 
 // Base routes
 router.use("/", baseRoutes);
+
 
 //API routes
 //--------------
@@ -19,7 +20,7 @@ router.use("/users", userRoutes);
 router.use("/appointments", appointmentsRoutes);
 
 // auth routes
-//router.use("/auth", authRoutes);
+router.use("/auth", authRoutes);
 
 // webcreator routes
 router.use("/webcreator", webcreatorRoutes);
