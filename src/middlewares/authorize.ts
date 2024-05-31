@@ -4,8 +4,8 @@ import { UserRoles } from "../constants/UserRoles";
 export const authorize = (allowedRoles: string[]) => {
   return (req: Request, res: Response, next: NextFunction) => {
     const userRole = req.tokenData.userRole;
-    //console.log(userRole);
-    console.log(UserRoles.SUPERADMIN.name);
+
+    //console.log(UserRoles.SUPERADMIN.name);
 
     // Default access as superadmin
     if (userRole === UserRoles.SUPERADMIN.name) {
