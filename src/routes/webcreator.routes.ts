@@ -1,13 +1,14 @@
 import express from "express";
+import { webcreatorController } from "../controllers/webcreatorController";
+import { auth } from "../middlewares/auth";
+import { authorize } from "../middlewares/authorize";
 
 const router = express.Router();
 /// WEBCREATOR ROUTES
 
 ////////////PUBLIC ROUTES//
 // get all webcreators
-router.get("/", (req, res) => {
-  res.send("List of webcreators");
-});
+router.get("/", webcreatorController.getAll);
 
 //GET WEBCRBYID AND DETAILS
 router.get("/:id", (req, res) => {
@@ -15,9 +16,7 @@ router.get("/:id", (req, res) => {
 });
 
 ////////////////Protected routes//
-router.post("/", (req, res) => {
-  res.send("New webcreator");
-});
+router.post("/", auth, authorize(["superadmin"]), webcreatorController.create);
 
 router.put("/:id", (req, res) => {
   res.send("update webcreators");
