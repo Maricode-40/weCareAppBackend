@@ -6,8 +6,8 @@ import { Client } from "../models/Client";
 export const appointmentController = {
   async getAll(req: Request, res: Response) {
     try {
-      //console.log("getAll");
-      
+      console.log("getAll");
+
       const page = Number(req.query.page) || 1;
       const limit = Number(req.query.limit) || 10;
 
@@ -19,13 +19,27 @@ export const appointmentController = {
           price: true,
         },
       });
+      if (appointments.length === 0) {
+        res.status(404).json({
+          message: "Dates not found",
+        });
+        return;
+      }
 
-      res.json(appointments);
+      const totalPages = Math.ceil(totalAppointments / limit);
+
+      res.status(200).json({
+        dates: appointments,
+        current_page: page,
+        per_page: limit,
+        total_pages: totalPages,
+      });
     } catch (error) {
-      res.status(500).json({ message: "Something went wrong" });
+      res.status(500).json({
+        message: "Something went wrong",
+      });
     }
   },
-
   //Get Appointments by ID
   async getById(req: Request, res: Response) {
     try {
